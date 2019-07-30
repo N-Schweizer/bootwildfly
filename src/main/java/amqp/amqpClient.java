@@ -3,6 +3,7 @@ package amqp;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import javax.annotation.PostConstruct;
 import javax.jms.BytesMessage;
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
@@ -19,8 +20,6 @@ import javax.naming.NamingException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 
@@ -38,7 +37,7 @@ private static final Logger logger = LogManager.getLogger(amqpClient.class);
 	private String Uuid = "";
 	private static int MessageCount = 0;
 	
-	@EventListener({ContextRefreshedEvent.class})
+	@PostConstruct
     public static void wub() {
         System.out.println( "Hello World!" );
         setup("TEST","");
