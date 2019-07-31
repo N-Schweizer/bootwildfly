@@ -41,11 +41,7 @@ private static final Logger logger = LogManager.getLogger(amqpClient.class);
     public static void wub() {
         System.out.println( "Hello World!" );
         setup("TEST","");
-    }
-    
-    
-    
-	
+    }	
 
 	public static void setup(String queueName, String uuid) {
 		logger.debug("Setting Properties");
